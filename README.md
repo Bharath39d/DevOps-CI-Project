@@ -104,7 +104,7 @@ Start docker container if it's not up
 
 #### Step 15 – Install TRIVY for docker image scan
 
-- # A Simple and Comprehensive Vulnerability Scanner for Containers and other Artifacts, Suitable for CI.
+A Simple and Comprehensive Vulnerability Scanner for Containers and other Artifacts, Suitable for CI.
 - sudo apt-get install wget apt-transport-https gnupg lsb-release
 - wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
 - echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
@@ -112,5 +112,36 @@ Start docker container if it's not up
 - sudo apt-get install trivy
 
 ## Integrate All tools with Jenkins
+Jenkins Dashboard -> Manage Jenkins ->configure system 
+#### Step 16 - ADD SONARQUBE
+- SonarQube Installations >> List of SonarQube Installations -> Name: sonar-api -> Server URL: http://<EC2_PUBLIC \_IP>:9000
+#### Step 16.1 
+Click on sonarqube servers -> add url and name step16 -> Click on add Server authentication token -> Select Secret text -> Add the sonar token from step13.3 -> Give name of token as sonarqube-api
+#### Step 17 - Add the docker HUB credentials ID
+- Jenkins dashboard -> Manage Jenkins -> Credentials -> System -> click on global credentials
+ADD the docker hub credentials with name as docker
+- kind -> Username with password
+- Scope -> Global
+- Username : <DockerHub-account-User-name>
+- Password : <DockerHu-account-User-password>
+- ID : docker
 
-#### Step 16 - Jenkins Dashboard -> Manage Jenkins ->configure system 
+#### Step 18 – Add the Jenkins Shared library
+Go to Manage Jenkins -> Configure system -> Global pipeline library -> Add below data
+- Name: my-shared-library
+- Default version: main
+- Git: 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
