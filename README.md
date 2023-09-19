@@ -128,10 +128,15 @@ ADD the docker hub credentials with name as docker
 
 #### Step 18 – Add the Jenkins Shared library
 Go to Manage Jenkins -> Configure system -> Global pipeline library -> Add below data
-- Name: my-shared-library
-- Default version: main
-- Git: 
-  
+- Name - my-shared-library
+- Default version – main
+- Source Code Management -> Git -> Project Repository: https://github.com/Bharath39d/jenkins_shared_lib.git
+
+#### Step 19 - Once pipeline is Run Check
+- The Jenkins logs
+- The Trivy scan vulnerabilities
+- The sonarqube dashboard for report
+
 
 
 
